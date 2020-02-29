@@ -22,8 +22,6 @@ import DashboardPage from './pages/DashboardPage.jsx';
 
 import Auth from './utils/Auth';
 
-// remove tap delay, essential for MaterialUI to work properly
-injectTapEventPlugin();
 
 class App extends Component {
 
