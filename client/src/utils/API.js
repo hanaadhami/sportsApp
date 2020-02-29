@@ -1,9 +1,11 @@
 import axios from "axios";
 
-// The getRecipes method retrieves recipes from the server
-// It accepts a "query" or term to search the recipe api for
+// authentifiaction query
 export default {
-  getComments: function(query) {
-    return axios.get("/api/comments", { params: { q: query } });
-  }
+  login: userData => 
+    axios.post("/auth/login",  userData),
+  signUp: userData => 
+    axios.post('/auth/signup', userData),
+  dashboard: token =>
+    axios.get('/api/dashboard', {headers: {Authorization: `bearer ${token}`}})
 };
