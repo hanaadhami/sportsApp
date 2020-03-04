@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "install": "cd client && npm install",
+    "install": "npm install",
     "client": "cd client && npm run start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
