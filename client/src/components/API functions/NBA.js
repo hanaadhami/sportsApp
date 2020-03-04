@@ -1,6 +1,7 @@
 import axios from "axios";
 
 // NBA live games API call
+function nbaLiveGames() {
 axios({
   "method":"GET",
   "url":"https://api-nba-v1.p.rapidapi.com/games/live/",
@@ -16,7 +17,7 @@ axios({
   .catch((error)=>{
     console.log(error)
   });
-  
+}
 // Get Games by Date
 // axios({
 //   "method":"GET",
@@ -33,3 +34,5 @@ axios({
 //   .catch((error)=>{
 //     console.log(error)
 //   })
+
+export default nbaLiveGames();
