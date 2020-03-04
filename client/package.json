@@ -18,11 +18,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "install": "npm install",
-    "client": "npm run start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "browserslist": [
     ">0.2%",
