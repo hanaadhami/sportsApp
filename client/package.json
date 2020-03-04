@@ -4,7 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "engines": {
-    "node": "v12.9.1"
+    "node": "12.9.1"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.5",
@@ -22,7 +22,7 @@
     "client": "cd client && npm run start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "cd client && NPM_CONFIG_PRODUCTION=false npm install && npm run build"
   },
   "browserslist": [
     ">0.2%",
