@@ -49,7 +49,9 @@ const SignUpForm = ({
       </div>
 
       <div className="button-line">
-        <Button type="submit" label="Create New Account" primary />
+      <Button variant="contained" color="primary">
+        Create your account
+      </Button>
       </div>
 
       <CardContent>Already have an account? <Link to={'/login'}>Log in</Link></CardContent>
