@@ -1,9 +1,10 @@
 const express = require("express");
 const path = require("path");
 const passport = require('passport');
-// const config = require('./server/config');
+const config = require('./config');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -35,18 +36,18 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 
 // load passport strategies
-const localSignupStrategy = require('./server/passport/local-signup');
-const localLoginStrategy = require('./server/passport/local-login');
+const localSignupStrategy = require('./passport/local-signup');
+const localLoginStrategy = require('./passport/local-login');
 passport.use('local-signup', localSignupStrategy);
 passport.use('local-login', localLoginStrategy);
 
 // pass the authenticaion checker middleware
-const authCheckMiddleware = require('./server/middleware/auth-check');
+const authCheckMiddleware = require('./middleware/auth-check');
 app.use('/api', authCheckMiddleware);
 
 // routes
-const authRoutes = require('./server/routes/auth');
-const apiRoutes = require('./server/routes/api');
+const authRoutes = require('./authroutes/auth');
+const apiRoutes = require('./apiroutes/api');
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
 
