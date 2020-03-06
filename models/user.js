@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
   username: { 
     type: String, 
     required: true 
@@ -15,12 +15,12 @@ const userSchema = new Schema({
     type: String,
     index: { unique: true }
   },
-  comments: [
-    {
-    type: Schema.Types.ObjectId,
-    ref: Comment
-    }
-  ],
+  // comments: [
+  //   {
+  //   type: Schema.Types.ObjectId,
+  //   ref: Comment
+  //   }
+  // ],
   avatarURL: {
     type: String,
     default: ""
@@ -60,6 +60,6 @@ UserSchema.pre('save', function saveHook(next) {
   });
 });
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
