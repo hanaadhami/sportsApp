@@ -45,7 +45,7 @@ class App extends Component {
           <div>
             <div className="top-bar">
               <div className="top-bar-left">
-                <Link to="/">React App</Link>
+                <Link to="/">Sports App</Link>
               </div>
               {this.state.authenticated ? (
                 <div className="top-bar-right">
