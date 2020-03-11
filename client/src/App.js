@@ -1,77 +1,29 @@
-import React, { Component } from 'react';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Auth from "./pages/Auth";
+import NoMatch from "./pages/NoMatch";
+import TopNav from "./components/TopNav";
+import { Container } from 'reactstrap';
 
-import HomePage from './components/HomePage.jsx';
-import { 
-  PrivateRoute, 
-  PropsRoute, 
-  LoggedOutRoute 
-} from './components/Routes';
-
-import LoginPage from './pages/LoginPage.jsx';
-import LogoutFunction from './pages/LogoutFunction.jsx';
-import SignUpPage from './pages/SignUpPage.jsx';
-import DashboardPage from './pages/DashboardPage.jsx';
-
-import Auth from './utils/Auth';
-
-
-class App extends Component {
-
-  state = {
-    authenticated: false
-  }
-
-  componentDidMount() {
-    // check if user is logged in on refresh
-    this.toggleAuthenticateStatus()
-  }
-
-  toggleAuthenticateStatus = () => {
-    // check authenticated status and toggle state based on that
-    this.setState({ authenticated: Auth.isUserAuthenticated() })
-  }
-
-  render() {
-    return (
-      <MuiThemeProvider muiTheme={getMuiTheme()}>
-        <Router>
-          <div>
-            <div className="top-bar">
-              <div className="top-bar-left">
-                <Link to="/">Sports App</Link>
-              </div>
-              {this.state.authenticated ? (
-                <div className="top-bar-right">
-                  <Link to="/dashboard">Dashboard</Link>
-                  <Link to="/logout">Log out</Link>
-                </div>
-              ) : (
-                <div className="top-bar-right">
-                  <Link to="/login">Log in</Link>
-                  <Link to="/signup">Sign up</Link>
-                </div>
-              )}
-
-            </div>
-
-            <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={this.toggleAuthenticateStatus} />
-            <PrivateRoute path="/dashboard" component={DashboardPage}/>
-            <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={this.toggleAuthenticateStatus} />
-            <LoggedOutRoute path="/signup" component={SignUpPage}/>
-            <Route path="/logout" component={LogoutFunction}/>
-          </div>
-
-        </Router>
-      </MuiThemeProvider>
-    )
-  }
+function App() {
+  return (
+      <Router>
+        <>
+          <TopNav />
+          <Container>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/signup" render={(props) => <Auth {...props} action="signup" />} />
+              <Route exact path="/login" render={(props) => <Auth {...props} action="login" />} />
+              <Route exact path="/profile" component={Profile} />
+              <Route component={NoMatch} />
+            </Switch>
+          </Container>
+        </>
+      </Router>
+  );
 }
 
 export default App;
