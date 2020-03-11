@@ -3,49 +3,49 @@ const passport = require("../../config/passport");
 const db = require("../../models");
 const authMiddleware = require("../../config/middleware/authMiddleware");
 
-// /api/todos/all
-// get all todos from the signed in user
+// /api/comments/all
+// get all comments from the signed in user
 router.get("/all", authMiddleware.isLoggedIn, function (req, res, next) {
-    db.Todo.find({ author: req.user.id }, (err, todos) => {
-        res.json(todos);
+    db.Comment.find({ author: req.user.id }, (err, comments) => {
+        res.json(comments);
     });
 });
 
-// /api/todos/new
-// add new todo, update the user to have todo id
+// /api/comments/new
+// add new comment, update the user to have comment id
 router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
-    const newTodo = new db.Todo({
+    const newComment = new db.Comment({
         author: req.user._id,
-        todo: req.body.todo
+        comment: req.body.comment
     });
 
-    newTodo.save((err, newTodo) => {
+    newComment.save((err, newComment) => {
         if (err) throw err;
-        db.User.findByIdAndUpdate(req.user.id, { $push: { todos: newTodo._id } }, (err, user) => {
+        db.User.findByIdAndUpdate(req.user.id, { $push: { comments: newComment._id } }, (err, user) => {
             if (err) throw err;
-            res.send(newTodo, user);
+            res.send(newComment, user);
         });
     });
 });
 
-// /api/todos/remove
-// removed todo based on id, updates user
+// /api/comments/remove
+// removed comment based on id, updates user
 router.delete("/remove", authMiddleware.isLoggedIn, function (req, res, next) {
-    db.Todo.findByIdAndDelete(req.body.id, (err, todo) => {
+    db.Comment.findByIdAndDelete(req.body.id, (err, comment) => {
         if (err) throw err;
-        db.User.findByIdAndUpdate(todo._id, { $pull: { 'todos': todo._id } }, { new: true }, (err, user) => {
+        db.User.findByIdAndUpdate(comment._id, { $pull: { 'comments': comment._id } }, { new: true }, (err, user) => {
             if (err) throw err;
             res.send(user);
         });
     });
 });
 
-// /api/todos/update
-// update a todo based on id
+// /api/comments/update
+// update a comment based on id
 router.put("/update", authMiddleware.isLoggedIn, function (req, res, next) {
-    db.Todo.findByIdAndUpdate(req.body.id, { todo: req.body.todo }, { new: true }, (err, todo) => {
+    db.Comment.findByIdAndUpdate(req.body.id, { comment: req.body.comment }, { new: true }, (err, comment) => {
         if (err) throw err;
-        res.json(todo);
+        res.json(comment);
     });
 });
 
