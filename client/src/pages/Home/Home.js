@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Button } from "reactstrap";
 import API from "../../utils/API";
 import "./Home.scss";
 
@@ -11,8 +10,9 @@ class Home extends Component {
 
   componentDidMount() {
     this.loggedIn();
+    API.getLiveGames();
   }
-
+  
 
   loggedIn = () => {
     API.isLoggedIn().then(user => {
@@ -29,6 +29,7 @@ class Home extends Component {
   render() {
     return (
       <div className="homeBox">
+        
       </div>
     );
   }

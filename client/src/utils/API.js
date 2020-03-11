@@ -26,8 +26,9 @@ export default {
     return axios.get("/api/users/logout")
   },
 
-  getLiveGames: function() {
-    axios({
+  // checks live NBA games
+  getLiveGames: async function() {
+    return axios({
       "method":"GET",
       "url":"https://api-nba-v1.p.rapidapi.com/games/live/",
       "headers":{
