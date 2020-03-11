@@ -83,7 +83,7 @@ export default function SearchAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Main Menu
+            Home
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -122,20 +122,14 @@ export default function FormControlLabelPosition() {
   );
 }
 const options = menuItem [
-  'None',
-  'Atria',
-  'Callisto',
-  'Dione',
-  'Ganymede',
-  'Hangouts Call',
-  'Luna',
-  'Oberon',
-  'Phobos',
-  'Pyxis',
-  'Sedna',
-  'Titania',
-  'Triton',
-  'Umbriel',
+  'sport type',
+  'past weeks streams',
+  'current scores',
+  'past weeks scores',
+  'team logos',
+  'random sports artwork',
+  'Contact Us',
+  'Help',
 ];
 
 const ITEM_HEIGHT = 48;
@@ -151,3 +145,35 @@ export default function LongMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  return (
+    <div>
+      <IconButton
+        aria-label="more"
+        aria-controls="long-menu"
+        aria-haspopup="true"
+        onClick={handleClick}
+      >
+        <MoreVertIcon />
+      </IconButton>
+      <Menu
+        id="long-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={open}
+        onClose={handleClose}
+        PaperProps={{
+          style: {
+            maxHeight: ITEM_HEIGHT * 4.5,
+            width: 200,
+          },
+        }}
+      >
+        {options.map(option => (
+          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
+            {option}
+          </MenuItem>
+        ))}
+      </Menu>
+    </div>
+  );
+}
