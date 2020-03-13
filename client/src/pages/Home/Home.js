@@ -12,6 +12,7 @@ class Home extends Component {
   componentDidMount() {
     this.loggedIn();
     this.getGames();
+    API.sportsNews();
     // API.getPastGames().then(res => setGames(res.data))
     // .catch(err => console.log(err));
   }
