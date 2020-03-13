@@ -6,13 +6,15 @@ class Home extends Component {
 
   state = {
     loggedIn: false,
+    games: []
   };
 
   componentDidMount() {
     this.loggedIn();
-    API.getLiveGames();
+    this.getGames();
+    // API.getPastGames().then(res => setGames(res.data))
+    // .catch(err => console.log(err));
   }
-  
 
   loggedIn = () => {
     API.isLoggedIn().then(user => {
@@ -26,6 +28,11 @@ class Home extends Component {
     });
   }
 
+  getGames = () => {
+    API.getPastGames().then(res => {
+    })
+    .catch(err => console.log(err));
+  }
   render() {
     return (
       <div className="homeBox">

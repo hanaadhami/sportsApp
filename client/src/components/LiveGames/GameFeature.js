@@ -2,11 +2,11 @@ import React from "react";
 import { Container, Row, Col } from '@material-ui/core';
 import { Thumbnail } from '@material-ui/lab';
 
-export function LiveGameList({ children }) {
+export function GameList({ children }) {
   return <container className="container">{children}</container>;
 }
 
-export function LiveGameFeature({
+export function GameFeature({
   gameID, 
   homelogo,
   hometeam,
@@ -23,10 +23,15 @@ export function LiveGameFeature({
       <Row>
         <Col size="xs-4 sm-2">
         <Thumbnail src={awaylogo || "https://placehold.it/100x100"} /><h3>{awayteam}</h3>
+        <h4>{awayscore}</h4>
         </Col>
         <Col size="xs-4 sm-2">
         <Thumbnail src={homelogo || "https://placehold.it/100x100"} /><h3>{hometeam}</h3>
+        <h4>{homescore}</h4>
         </Col>
+      </Row>
+      <Row>
+        <p>{timeleft}</p><br></br><p>{currentperiod}</p>
       </Row>
     </Container>
   </div>
