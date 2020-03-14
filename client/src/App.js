@@ -5,14 +5,15 @@ import Profile from "./pages/Profile";
 import Auth from "./pages/Auth";
 import NoMatch from "./pages/NoMatch";
 import TopNav from "./components/TopNav";
-import { Container } from 'reactstrap';
+
 
 function App() {
   return (
       <Router>
+
         <>
           <TopNav />
-          <Container>
+         
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/signup" render={(props) => <Auth {...props} action="signup" />} />
@@ -20,8 +21,9 @@ function App() {
               <Route exact path="/profile" component={Profile} />
               <Route component={NoMatch} />
             </Switch>
-          </Container>
+         
         </>
+
       </Router>
   );
 }

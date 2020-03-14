@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import { Button } from "reactstrap";
+// import CurrentGames from '../../components/CurrentGames';
+import PastGames from '../../components/PastGames';
+import { Container, Row, Col } from 'reactstrap';
 import API from "../../utils/API";
 import "./Home.scss";
+import CurrentGames from "../../components/CurrentGames";
+
 
 class Home extends Component {
 
@@ -28,8 +32,23 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="homeBox">
-      </div>
+      <Container>
+        <Row>
+          <Col xs="3">
+            <div className="sidebar">
+              <CurrentGames />
+              <PastGames />
+              
+            </div>
+          </Col>
+          <Col xs="9">
+            <div className="dashboardBody">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+          </Col>
+        </Row>
+      </Container>
+
     );
   }
 }
