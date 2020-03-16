@@ -10,9 +10,9 @@ const CurrentGames = () => {
       <thead>
         <tr>
           <th>Team 1</th>
-          <th>Team 1 Score</th>
+          <th>Score</th>
           <th>Team 2</th>
-          <th>Team 2 Score</th>
+          <th>Score</th>
         </tr>
       </thead>
       <tbody>

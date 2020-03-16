@@ -23,17 +23,14 @@ class PastGames extends React.Component {
       <thead>
         <tr>
           <th>Team 1</th>
-          <th>Team 1 Score</th>
+          <th>Score</th>
           <th>Team 2</th>
-          <th>Team 2 Score</th>
+          <th>Score</th>
         </tr>
       </thead>
       <tbody>
       {rows.map(row => (
               <tr>
-                <th scope="row">
-                  {row.name1 + " vs. " + row.name2}
-                </th>
                 <td>{row.name1}</td>
                 <td>{row.score1}</td>
                 <td>{row.name2}</td>
