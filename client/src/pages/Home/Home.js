@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PastGames from '../../components/PastGames';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Alert } from 'reactstrap';
 import API from "../../utils/API";
 import "./Home.scss";
+import NbaAlert from "../../components/NbaAlert/NbaAlert";
 import CurrentGames from "../../components/CurrentGames";
 import CommentCard from "../../components/CommentCard";
 import CommentWrite from "../../components/CommentWrite";
@@ -18,13 +19,22 @@ class Home extends Component {
   // }
   state = {
     loggedIn: false,
-    games: []
+    gamesArray: [],
+    game: {}
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.loggedIn();
-    API.sportsNews();
-    API.getPastGames();
+    // API.sportsNews();
+
+    API.getPastGames()
+    .then(gamesArray => {
+      this.setState({gamesArray: gamesArray})
+      console.log(this.gamesArray)
+    })
+    .catch(err => console.log(err))
+    
+    
     // .then(res => res.json())
     // .then(json => {
     //   this.setState({
@@ -59,10 +69,12 @@ class Home extends Component {
     .catch(err => console.log(err));
   }
 
+
   render() {
 
     return (
       <Container>
+        <NbaAlert></NbaAlert>
         <Row>
           {/* <Col xs="3">
             <div className="homeBox">
@@ -84,7 +96,7 @@ class Home extends Component {
               />
               <hr />
               <h2>Past Games</h2>
-              <PastGames onLoad={e=> {this.getGames()}}/>
+              <PastGames games={this.state.games}/>
             </div>
           </Col>
           <Col xs="9">

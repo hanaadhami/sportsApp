@@ -58,7 +58,8 @@ getPastGames: async function() {
     })
     .then((response)=>{
       console.log(response);
-      // var gamesArray = response.data.api.games;
+      var gamesArray = response.data.api.games;
+      // console.log(gamesArray);
       // // for (let i = 0; i < gamesArray.length; i++) {
       // //   var gameID = [i].gameId;
       // //   var awayTeam = [i].vTeam.fullName;
