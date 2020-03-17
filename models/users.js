@@ -31,7 +31,7 @@ const usersSchema = new Schema({
   },
   comments: [{
     type: Schema.Types.ObjectId,
-    ref: 'Todo'
+    ref: 'Comment'
   }]
 });
 

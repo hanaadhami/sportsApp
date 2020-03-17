@@ -1,7 +1,7 @@
 {
   "name": "react-auth",
   "version": "1.0.0",
-  "description": "react app with passport auth",
+  "description": "sports app with passport auth",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -14,15 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/evanejtucker/react-auth.git"
+    "url": "git+https://github.com/hanaadhami/sportsApp"
   },
   "keywords": [],
-  "author": "Evan E J Tucker",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/evanejtucker/react-auth/issues"
-  },
-  "homepage": "https://github.com/evanejtucker/react-auth#readme",
+  "homepage": "https://github.com/hanaadhami/sportsApp#readme",
   "dependencies": {
     "@material-ui/core": "^4.9.5",
     "@material-ui/icons": "^4.9.1",

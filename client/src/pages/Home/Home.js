@@ -9,14 +9,32 @@ import CommentWrite from "../../components/CommentWrite";
 
 class Home extends Component {
 
+  // constructor(props){
+  //   super(props);
+  //   this.state = {
+  //     games: [],
+  //     isLoaded: false
+  //   }
+  // }
   state = {
     loggedIn: false,
+    games: []
   };
 
   componentDidMount() {
     this.loggedIn();
+    API.sportsNews();
+    API.getPastGames();
+    // .then(res => res.json())
+    // .then(json => {
+    //   this.setState({
+    //     isLoaded: true,
+    //     games: json
+    //   })
+    // });
+    // API.getPastGames().then(res => setGames(res.data))
+    // .catch(err => console.log(err));
   }
-
 
   loggedIn = () => {
     API.isLoggedIn().then(user => {
@@ -30,10 +48,28 @@ class Home extends Component {
     });
   }
 
+  getGames = () => {
+    API.getPastGames().then(response => {
+      let gamesArray = response.data.api.games.replace([]);
+      this.setState({
+        games: gamesArray
+      })
+      console.log(gamesArray)
+    })
+    .catch(err => console.log(err));
+  }
+
   render() {
+
     return (
       <Container>
         <Row>
+          {/* <Col xs="3">
+            <div className="homeBox">
+              <GameFeature games={this.state.games}/>
+
+            </div>
+          </Col> */}
           <Col xs="3">
             <div className="sidebar" style={{
               padding: "40px 10px",
@@ -48,7 +84,7 @@ class Home extends Component {
               />
               <hr />
               <h2>Past Games</h2>
-              <PastGames />
+              <PastGames onLoad={e=> {this.getGames()}}/>
             </div>
           </Col>
           <Col xs="9">
@@ -58,6 +94,7 @@ class Home extends Component {
 
                 }}>Time passed: <span className ="timePassed"></span></h4>
             <hr />
+
 
               <div classname="scoreSection wrapper" style={{
                   display: "grid",
@@ -92,8 +129,8 @@ class Home extends Component {
         </Row>
       </Container>
 
-    );
+      );
+    }
   }
-}
 
 export default Home;
