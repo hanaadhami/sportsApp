@@ -95,5 +95,12 @@ getPastGames: async function() {
         }
       */
     });
+    },
+
+    ChuckNorris: function() {
+      return axios.get("https://api.icndb.com/jokes/random")
+      .then(response => {
+        console.log(response)
+      })
     }
 }
