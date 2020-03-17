@@ -9,8 +9,7 @@ const NbaAlert = (props) => {
   return (
     <Alert color="dark" isOpen={visible} toggle={onDismiss}>
         <h4>Important Update</h4>
-          <br></br>
-        Due to the NBA season being postponed until further notice, there are no live games for us to show. 
+        Due to the NBA season being postponed, there are no live games for us to show. 
     </Alert>
   );
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PastGames from '../../components/PastGames';
-import { Container, Row, Col, Alert } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import API from "../../utils/API";
 import "./Home.scss";
 import NbaAlert from "../../components/NbaAlert/NbaAlert";
@@ -116,18 +116,18 @@ class Home extends Component {
                 }}>
                 <div className="team1ScoreSection">
                   <h2 className="team1">
-                    Team Name
+                    Visiting Team
                   </h2>
                   <h4>
-                    Points: <span className="team1Score"></span>
+                    Score: <span className="team1Score"></span>
                   </h4>
                   </div>
                 <div className="team2ScoreSection">
                   <h2 className="team2">
-                      Team Name
+                      Home Team
                     </h2>
                     <h4>
-                      Points: <span className="team2Score"></span>
+                      Score: <span className="team2Score"></span>
                     </h4>
                   </div>
                 </div>
