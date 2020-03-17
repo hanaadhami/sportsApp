@@ -60,9 +60,16 @@ class Home extends Component {
   }
 
   render() {
+
     return (
       <Container>
         <Row>
+          {/* <Col xs="3">
+            <div className="homeBox">
+              <GameFeature games={this.state.games}/>
+
+            </div>
+          </Col> */}
           <Col xs="3">
             <div className="sidebar" style={{
               padding: "40px 10px",
@@ -77,7 +84,7 @@ class Home extends Component {
               />
               <hr />
               <h2>Past Games</h2>
-              <PastGames />
+              <PastGames onLoad={e=> {this.getGames()}}/>
             </div>
           </Col>
           <Col xs="9">
@@ -87,6 +94,7 @@ class Home extends Component {
 
                 }}>Time passed: <span className ="timePassed"></span></h4>
             <hr />
+
 
               <div classname="scoreSection wrapper" style={{
                   display: "grid",

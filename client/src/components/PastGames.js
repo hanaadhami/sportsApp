@@ -17,7 +17,9 @@ const rows = [
 
 
 class PastGames extends React.Component {
+
   render() {
+    var pastGames = this.props.games;
     return (
       <Table>
       <thead>
@@ -35,6 +37,7 @@ class PastGames extends React.Component {
                 <td>{row.score1}</td>
                 <td>{row.name2}</td>
                 <td>{row.score2}</td>
+                <td>{pastGames}</td>
               </tr>
             ))}
       </tbody>
