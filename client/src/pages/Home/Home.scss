@@ -1,13 +1,20 @@
 @import "../../sass/variable.scss";
 
-.homeBox {
-    margin: 0 auto;
-    margin-top: 20vh;
-    width: 300px;
-    font-family: $text-font;
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
 
-    button {
-        font-size: 1.3em;
-        font-weight: bold;
-    }
-}
+.dashboardBody {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px 0px 5px 0px;
+  margin: 40px;
+  padding: 20px;
+  min-height: 200px;
+  width: 100%;
+ }
+
+// .sidebar {
+//   background-color: blue;
+// }
