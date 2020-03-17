@@ -37,17 +37,52 @@ class Home extends Component {
           <Col xs="3">
             <div className="sidebar" style={{
               padding: "40px 10px",
-              fontFamily: 'Lato'}}>
-              <CurrentGames 
-              style={{
-              padding: "40px 0px"}}
+              fontFamily: 'Lato'
+            }}>
+              <hr />
+              <h2>Current Games</h2>
+              <CurrentGames
+                style={{
+                  padding: "40px 0px"
+                }}
               />
+              <hr />
+              <h2>Past Games</h2>
               <PastGames />
             </div>
           </Col>
           <Col xs="9">
             <div className="dashboardBody">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <h4 style={{
+                color: "#6184D1"
+
+                }}>Time passed: <span className ="timePassed"></span></h4>
+            <hr />
+
+              <div classname="scoreSection wrapper" style={{
+                  display: "grid",
+                  gridColumnGap: "10px",
+                  gridTemplateColumns: "auto auto"
+
+                }}>
+                <div className="team1ScoreSection">
+                  <h2 className="team1">
+                    Team Name
+                  </h2>
+                  <h4>
+                    Points: <span className="team1Score"></span>
+                  </h4>
+                  </div>
+                <div className="team2ScoreSection">
+                  <h2 className="team2">
+                      Team Name
+                    </h2>
+                    <h4>
+                      Points: <span className="team2Score"></span>
+                    </h4>
+                  </div>
+                </div>
+              <hr />
               <CommentWrite />
               {//need to add a container component for comment cards where all comment cards get appended 
               }
