@@ -25,7 +25,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.45",
     "axios": "^0.19.2",
-    "bcrypt": "^3.0.8",
+    "bcrypt": "^5.0.0",
     "connect-flash": "^0.1.1",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
