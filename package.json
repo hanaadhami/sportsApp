@@ -27,7 +27,7 @@
     "axios": "^0.19.2",
     "bcrypt": "^3.0.8",
     "connect-flash": "^0.1.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.17.0",
     "if-env": "^1.0.4",
     "jquery": "^3.4.1",
